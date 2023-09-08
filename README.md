@@ -12,7 +12,7 @@
 - [Tecnologías utilizadas](#Tecnologías-utilizadas)  
 - [Autores](#Autores)  
 ## Instrucciones de instalación
-- Tener las credenciales ssh en GitHub
+- Hacer el fork del [proyecto](https://github.com/zidjian/proyecto-colaborativo) 
 - Clonar el el repositorio: `git clone "enlace-github"` 
 - Instalar las dependencias: `npm install` 
 - Iniciar el proyecto: `npm run dev` 
