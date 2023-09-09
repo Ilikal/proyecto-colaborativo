@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Inicio } from "./pages/Inicio";
 import { Dashboard } from "./pages/Dashboard";
 import { Error404 } from "./pages/Error404";
+import { CrearFormulario } from "./pages/CrearFormulario";
+import { DiligenciarFormulario } from "./pages/DiligenciarFormulario";
 
 function App() {
     return (
@@ -10,6 +12,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<Inicio />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/crear-formulario" element={<CrearFormulario />} />
+                <Route path="/diligenciar-formulario" element={<DiligenciarFormulario />} />
+                <Route path="/editar-formulario" element={<CrearFormulario />} />
                 <Route path="*" element={<Error404 />} />
             </Routes>
         </BrowserRouter>

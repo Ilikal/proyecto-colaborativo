@@ -1,5 +1,10 @@
 import { Plantilla } from "../components/UI/Plantilla";
 
 export function Dashboard() {
-    return <Plantilla>Dashboard</Plantilla>;
+    return (
+        <Plantilla>
+            dshvdshljvdsjkvksdvkjsdvh
+            <h1>hola</h1>
+        </Plantilla>
+    );
 }

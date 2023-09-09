@@ -130,6 +130,7 @@ export function Plantilla({ children }) {
                     >
                         <MenuIcon />
                     </IconButton>
+                    {/* Incluir aqui los botones del header */}
                     <Typography variant="h6" noWrap component="div">
                         Titulo de la cabecera
                     </Typography>
@@ -139,9 +140,9 @@ export function Plantilla({ children }) {
                 <DrawerHeader sx={{ bgcolor: "primary.main" }}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === "rtl" ? (
-                            <ChevronRightIcon sx={{ color: "#ffffff" }} />
+                            <MenuIcon sx={{ color: "#ffffff" }} />
                         ) : (
-                            <ChevronLeftIcon sx={{ color: "#ffffff" }} />
+                            <MenuIcon sx={{ color: "#ffffff" }} />
                         )}
                     </IconButton>
                 </DrawerHeader>
