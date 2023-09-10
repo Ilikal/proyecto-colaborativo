@@ -27,6 +27,9 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import PeopleIcon from "@mui/icons-material/People";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
+import Botón from "../Boton/boton.jsx"
+import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.jsx"
+
 import PropTypes from "prop-types";
 import { useState } from "react";
 
@@ -97,6 +100,8 @@ const Drawer = styled(MuiDrawer, {
     }),
 }));
 
+
+
 export function Plantilla({ children }) {
     Plantilla.propTypes = {
         children: PropTypes.node,
@@ -112,6 +117,12 @@ export function Plantilla({ children }) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    // -------- VARIABLES para crear MODAL/POPUP -------
+    const [openModal, setOpenModal] = useState(false);
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+    // -------------------------------------------------
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -130,7 +141,11 @@ export function Plantilla({ children }) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    {/* Incluir aqui los botones del header */}
+
+                    {/* REEMPLAZAR aquí los botones del header */}
+                    <Botón onClick={handleOpenModal}/>
+                    <PopUpCrearFromulario open={openModal} onClose={handleCloseModal} />
+
                     <Typography variant="h6" noWrap component="div">
                         Titulo de la cabecera
                     </Typography>
