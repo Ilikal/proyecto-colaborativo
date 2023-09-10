@@ -53,7 +53,7 @@ const CrearFormulario = (props) => {
                         > 
                         CREAR FORMULARIO 
                     </Typography>
-                    <IconButton aria-label="Cerrar Formulario"sx={{color:"#03A0F8"}} size="large" onClick={imprimir}> 
+                    <IconButton aria-label="Cerrar Formulario"sx={{color:"#03A0F8"}} size="large" onClick={props.onClose}> 
                         <CancelPresentation variant="rounded" fontSize="large" />
                     </IconButton>
                 </Box>

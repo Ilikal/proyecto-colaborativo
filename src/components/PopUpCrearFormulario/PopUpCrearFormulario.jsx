@@ -29,9 +29,9 @@ const PopUpCrearFromulario = (props) => {
 
     
     return (
-        <Modal open={props.open} onClose={props.onClose} style={styleModal}>
+        <Modal open={props.open}  style={styleModal}>
             <Box sx={stylePopUp} > 
-                <CrearFormulario/>
+                <CrearFormulario onClose={props.onClose}/>
             </Box>
         </Modal>
     )

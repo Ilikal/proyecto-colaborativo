@@ -32,8 +32,10 @@ import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.j
 
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { Home, NoteAdd, NoteAlt, PowerSettingsNew } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -52,7 +54,7 @@ const closedMixin = (theme) => ({
     overflowX: "hidden",
     width: `calc(${theme.spacing(7)} + 1px)`,
     [theme.breakpoints.up("sm")]: {
-        width: `calc(${theme.spacing(8)} + 1px)`,
+        width: `calc(${theme.spacing(10)} + 1px)`,
     },
 });
 
@@ -142,17 +144,20 @@ export function Plantilla({ children }) {
                         <MenuIcon />
                     </IconButton>
 
-                    {/* REEMPLAZAR aquí los botones del header */}
-                    <Botón onClick={handleOpenModal}/>
+                    
+
+                    {/* Incluir aqui los botones del header */}
+                    <IconButton aria-label="Pagina Principal"><Home sx={{color:"white"}} /></IconButton>
+                    <Button variant="contained" onClick={handleOpenModal}  sx={{color:"#003D75", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>
                     <PopUpCrearFromulario open={openModal} onClose={handleCloseModal} />
 
-                    <Typography variant="h6" noWrap component="div">
-                        Titulo de la cabecera
-                    </Typography>
+                    <Button variant="contained" sx={{margin:"0 0 0 20px", color:"#003D75", backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAlt />DILIGENCIAR FORMULARIO</Button>
+                    <Typography sx={{marginLeft: "auto"}}>Hola USUARIO</Typography>              
+                    <Button variant="contained" sx={{marginLeft: "auto", margin:"0 0 0 20px", backgroundColor:"#003D75"}} color="error"><PowerSettingsNew sx={{margin: "0 10px 0 0"}}></PowerSettingsNew>Salir</Button>
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent" open={open}>
-                <DrawerHeader sx={{ bgcolor: "primary.main" }}>
+            <Drawer variant="permanent" open={open} >
+                <DrawerHeader sx={{ bgcolor: "#003D75" }}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === "rtl" ? (
                             <MenuIcon sx={{ color: "#ffffff" }} />
@@ -162,7 +167,7 @@ export function Plantilla({ children }) {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <List>
+                <List sx={{background: "#003D75", height:"100%" }}>
                     {[
                         { text: "Compras", icon: <ShoppingCartIcon /> },
                         {
@@ -207,25 +212,34 @@ export function Plantilla({ children }) {
                             disablePadding
                             sx={{ display: "block" }}
                         >
-                            <ListItemButton
+                            <ListItemButton 
+                            
                                 sx={{
-                                    minHeight: 48,
+                                    minHeight: 40,
                                     justifyContent: open ? "initial" : "center",
+                                    textAlign: "center",
                                     px: 2.5,
+                                    border:"1px solid #000",
+                                    m: "10px",
+                                    borderRadius: "8px",
+                                    backgroundColor: "#03A0F8",
+                                    
                                 }}
-                            >
+                            > 
                                 <ListItemIcon
                                     sx={{
                                         minWidth: 0,
-                                        mr: open ? 3 : "auto",
+                                        mr: open ? 1 : "auto",
                                         justifyContent: "center",
+                                        color:"white",
                                     }}
                                 >
                                     {element.icon}
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={element.text}
-                                    sx={{ opacity: open ? 1 : 0 }}
+                                    primaryTypographyProps={{fontSize:'13px', fontWeight:600}}
+                                    sx={{ opacity: open ? 1 : 0, color:"white", }}
                                 />
                             </ListItemButton>
                         </ListItem>
