@@ -27,6 +27,9 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import PeopleIcon from "@mui/icons-material/People";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
+import Botón from "../Boton/boton.jsx"
+import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.jsx"
+
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Home, NoteAdd, NoteAlt, PowerSettingsNew } from "@mui/icons-material";
@@ -99,6 +102,8 @@ const Drawer = styled(MuiDrawer, {
     }),
 }));
 
+
+
 export function Plantilla({ children }) {
     Plantilla.propTypes = {
         children: PropTypes.node,
@@ -114,6 +119,12 @@ export function Plantilla({ children }) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    // -------- VARIABLES para crear MODAL/POPUP -------
+    const [openModal, setOpenModal] = useState(false);
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+    // -------------------------------------------------
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -132,15 +143,20 @@ export function Plantilla({ children }) {
                     >
                         <MenuIcon />
                     </IconButton>
+
+                    
+
                     {/* Incluir aqui los botones del header */}
                     <IconButton aria-label="Pagina Principal"><Home sx={{color:"white"}} /></IconButton>
-                    <Button variant="contained"   sx={{color:"#003D75", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>
+                    <Button variant="contained" onClick={handleOpenModal}  sx={{color:"#003D75", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>
+                    <PopUpCrearFromulario open={openModal} onClose={handleCloseModal} />
+
                     <Button variant="contained" sx={{margin:"0 0 0 20px", color:"#003D75", backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAlt />DILIGENCIAR FORMULARIO</Button>
                     <Typography sx={{marginLeft: "auto"}}>Hola USUARIO</Typography>              
                     <Button variant="contained" sx={{marginLeft: "auto", margin:"0 0 0 20px", backgroundColor:"#003D75"}} color="error"><PowerSettingsNew sx={{margin: "0 10px 0 0"}}></PowerSettingsNew>Salir</Button>
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent" open={open}>
+            <Drawer variant="permanent" open={open} >
                 <DrawerHeader sx={{ bgcolor: "#003D75" }}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === "rtl" ? (
@@ -151,7 +167,7 @@ export function Plantilla({ children }) {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <List sx={{background: "#003D75"}}>
+                <List sx={{background: "#003D75", height:"100%" }}>
                     {[
                         { text: "Compras", icon: <ShoppingCartIcon /> },
                         {
