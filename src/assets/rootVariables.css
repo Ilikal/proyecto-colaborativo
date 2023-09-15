@@ -1,0 +1,35 @@
+:root {
+    /*COLORES*/
+
+   --Blanco: #FFFFFF;
+   --Negro: #000000;
+    
+    /*AZULES*/
+    
+   --A100: #95d3f6;
+   --A300: #03A0F8;
+   --A500: #027DC1;
+   --A800: #003D75;
+    
+    /*VERDES*/
+    
+   --V100: #96EAD1;
+   --V300: #05E8A4;
+   --V500: #0AA94A;
+    
+    /*GRISES*/
+    
+   --G100: #D9D9D9;
+   --G300: #7B7B7B;
+   --G500: grey.100; /*FondoDesenfoqueModal*/
+    
+    /*ALERTAS*/
+    
+   --Alert: #E90909;
+   --Alert_Soft: #F53E3E;
+
+    
+    /*FUENTES- GOOGLE*/
+    
+   --font-family: "Roboto", sans-serif;
+}

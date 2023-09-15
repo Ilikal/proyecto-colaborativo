@@ -32,4 +32,5 @@ Proyecto colaborativo.
 - HTML
 ## Autores
 | [<img src='https://www.github.com/zidjian.png' width=115><br><sub>Waldir Maidana </sub>](https://github.com/zidjian) |
+| [<img src='https://github.com/archersmack.png' width=115><br><sub>Germán Hernández </sub>](https://github.com/archersmack) |
 | :---: |

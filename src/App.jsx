@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+/* Se agrega root de colores y fuentes*/
+import "./assets/rootVariables.css"
+
 import { Inicio } from "./pages/Inicio";
 import { Dashboard } from "./pages/Dashboard";
 import { Error404 } from "./pages/Error404";
