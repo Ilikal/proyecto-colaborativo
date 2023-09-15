@@ -27,13 +27,14 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import PeopleIcon from "@mui/icons-material/People";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
-import Botón from "../Boton/boton.jsx"
 import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.jsx"
 
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Home, NoteAdd, NoteAlt, PowerSettingsNew } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { Boton } from "../Boton/index.jsx";
+
 
 const drawerWidth = 260;
 
@@ -121,9 +122,9 @@ export function Plantilla({ children }) {
     };
 
     // -------- VARIABLES para crear MODAL/POPUP -------
-    const [openModal, setOpenModal] = useState(false);
-    const handleOpenModal = () => setOpenModal(true);
-    const handleCloseModal = () => setOpenModal(false);
+    const [openModal1, setOpenModal1] = useState(false);
+    const handleOpenModal1 = () => setOpenModal1(true);
+    const handleCloseModal1 = () => setOpenModal1(false);
     // -------------------------------------------------
 
     return (
@@ -144,30 +145,35 @@ export function Plantilla({ children }) {
                         <MenuIcon />
                     </IconButton>
 
-                    
-
                     {/* Incluir aqui los botones del header */}
                     <IconButton aria-label="Pagina Principal"><Home sx={{color:"white"}} /></IconButton>
-                    <Button variant="contained" onClick={handleOpenModal}  sx={{color:"#003D75", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>
-                    <PopUpCrearFromulario open={openModal} onClose={handleCloseModal} />
+                    <Box sx={{display:"flex", gap:"20px"}}>
+                        <Boton onClick={handleOpenModal1} tipo="conRelleno--Blanco" ancho="auto"> 
+                            <NoteAdd/> CREAR FORMULARIO {/*<-- Lo que se agregue dentro de Boton lo recibe el componente co<PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />mo children*/ }
+                        </Boton>
+                        <Boton onClick={1} tipo="conRelleno--Blanco" ancho="auto">
+                            <NoteAlt />DILIGENCIAR FORMULARIO    
+                        </Boton>
+                    </Box>
+                    {/*<Button variant="contained" onClick={handleOpenModal1} sx={{color:"var(--A800)", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"var(--A100)", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>*/}
+                    <PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />
 
-                    <Button variant="contained" sx={{margin:"0 0 0 20px", color:"#003D75", backgroundColor:"white", ":hover":{backgroundColor:"#95D3F6", color:"white"}}} ><NoteAlt />DILIGENCIAR FORMULARIO</Button>
                     <Typography sx={{marginLeft: "auto"}}>Hola USUARIO</Typography>              
-                    <Button variant="contained" sx={{marginLeft: "auto", margin:"0 0 0 20px", backgroundColor:"#003D75"}} color="error"><PowerSettingsNew sx={{margin: "0 10px 0 0"}}></PowerSettingsNew>Salir</Button>
+                    <Button variant="contained" sx={{marginLeft: "auto", margin:"0 0 0 20px", backgroundColor: "var(--A800)", ":hover":{backgroundColor:"var(--Alert)", color:"white"} }} ><PowerSettingsNew sx={{margin: "0 10px 0 0"}}></PowerSettingsNew>Salir</Button>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open} >
-                <DrawerHeader sx={{ bgcolor: "#003D75" }}>
+                <DrawerHeader sx={{ bgcolor: "var(--A800)" }}>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === "rtl" ? (
-                            <MenuIcon sx={{ color: "#ffffff" }} />
+                            <MenuIcon sx={{ color: "var(--Blanco)" }} />
                         ) : (
-                            <MenuIcon sx={{ color: "#ffffff" }} />
+                            <MenuIcon sx={{ color: "var(--Blanco)" }} />
                         )}
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <List sx={{background: "#003D75", height:"100%" }}>
+                <List sx={{background: "var(--A800)", height:"100%" }}>
                     {[
                         { text: "Compras", icon: <ShoppingCartIcon /> },
                         {
@@ -219,10 +225,9 @@ export function Plantilla({ children }) {
                                     justifyContent: open ? "initial" : "center",
                                     textAlign: "center",
                                     px: 2.5,
-                                    border:"1px solid #000",
                                     m: "10px",
                                     borderRadius: "8px",
-                                    backgroundColor: "#03A0F8",
+                                    backgroundColor: "var(--A300)",
                                     
                                 }}
                             > 
@@ -239,7 +244,7 @@ export function Plantilla({ children }) {
                                 <ListItemText
                                     primary={element.text}
                                     primaryTypographyProps={{fontSize:'13px', fontWeight:600}}
-                                    sx={{ opacity: open ? 1 : 0, color:"white", }}
+                                    sx={{ opacity: open ? 1 : 0, color:"white", textAlign: "left"}}
                                 />
                             </ListItemButton>
                         </ListItem>

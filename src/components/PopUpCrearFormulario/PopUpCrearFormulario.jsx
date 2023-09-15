@@ -9,7 +9,7 @@ const PopUpCrearFromulario = (props) => {
 
     /* ESTILO DEL MODAL */
     const styleModal = {
-        background: "grey.100"
+        background: "var(--G500)"
     };
 
     /* ESTILO DEL POPUP */
@@ -20,8 +20,8 @@ const PopUpCrearFromulario = (props) => {
         /*transform: 'translate(-50%, -50%)',*/
         width: '100%',
         maxWidth: '86%',
-        bgcolor: 'grey.300',
-        border: '0px solid #000',
+        bgcolor: 'var(--G100)',
+        border: '0px solid var(--Negro)',
         borderRadius: '20px',
         boxShadow: 24,
         p: 4,
