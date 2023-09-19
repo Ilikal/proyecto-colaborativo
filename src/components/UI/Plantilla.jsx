@@ -27,13 +27,14 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import PeopleIcon from "@mui/icons-material/People";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
-import Botón from "../Boton/boton.jsx";
 import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.jsx";
 
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Home, NoteAdd, NoteAlt, PowerSettingsNew } from "@mui/icons-material";
-import { BottomNavigation, Button } from "@mui/material";
+import { Button } from "@mui/material";
+import { Boton } from "../Boton/index.jsx";
+import "./estilos.css";
 
 const drawerWidth = 180;
 
@@ -119,9 +120,9 @@ export function Plantilla({ children }) {
   };
 
   // -------- VARIABLES para crear MODAL/POPUP -------
-  const [openModal, setOpenModal] = useState(false);
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => setOpenModal(false);
+  const [openModal1, setOpenModal1] = useState(false);
+  const handleOpenModal1 = () => setOpenModal1(true);
+  const handleCloseModal1 = () => setOpenModal1(false);
   // -------------------------------------------------
 
   return (
@@ -139,52 +140,38 @@ export function Plantilla({ children }) {
               ...(open && { display: "none" }),
             }}
           >
-            <MenuIcon sx={{ ":hover": { color: "#95D3F6" } }} />
+            <MenuIcon sx={{ ":hover": { color: "var(--A100)" } }} />
           </IconButton>
 
           {/* Incluir aqui los botones del header */}
-          <IconButton
-            aria-label="Pagina Principal"
-            sx={{ ":hover": { color: "#95D3F6" } }}
-          >
-            <Home sx={{ color: "white", ":hover": { color: "#95D3F6" } }} />
+          <IconButton aria-label="Pagina Principal">
+            <Home sx={{ color: "var(--Blanco)", ":hover": { color: "var(--A100)" } }} />{" "}
           </IconButton>
-          <Button
-            variant="contained"
-            onClick={handleOpenModal}
-            sx={{
-              color: "#003D75",
-              ml: 2,
-              backgroundColor: "white",
-              ":hover": { backgroundColor: "#95D3F6", color: "white" },
-            }}
-          >
-            <NoteAdd />
-            CREAR FORMULARIO
-          </Button>
-          <PopUpCrearFromulario open={openModal} onClose={handleCloseModal} />
+          <Box sx={{ display: "flex", gap: "20px" }}>
+            <Boton
+              onClick={handleOpenModal1}
+              tipo="conRelleno--Blanco"
+              ancho="auto"
+            >
+              <NoteAdd /> CREAR FORMULARIO{" "}
+              {/*<-- Lo que se agregue dentro de Boton lo recibe el componente co<PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />mo children*/}
+            </Boton>
+            <Boton onClick={1} tipo="conRelleno--Blanco" ancho="auto">
+              <NoteAlt />
+              DILIGENCIAR FORMULARIO
+            </Boton>
+          </Box>
+          {/*<Button variant="contained" onClick={handleOpenModal1} sx={{color:"var(--A800)", ml: 2, backgroundColor:"var(--Blanco)", ":hover":{backgroundColor:"var(--A100)", color:"var(--Blanco)"}}} ><NoteAdd />CREAR FORMULARIO</Button>*/}
+          <PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />
 
-          <Button
-            variant="contained"
-            sx={{
-              margin: "0 0 0 20px",
-              color: "#003D75",
-              backgroundColor: "white",
-              ":hover": { backgroundColor: "#95D3F6", color: "white" },
-            }}
-          >
-            <NoteAlt />
-            DILIGENCIAR FORMULARIO
-          </Button>
           <Typography sx={{ marginLeft: "auto" }}>Hola USUARIO</Typography>
           <Button
             variant="contained"
-            size="large"
             sx={{
               marginLeft: "auto",
               margin: "0 0 0 20px",
-              backgroundColor: "#003D75",
-              ":hover": { backgroundColor: "#E90909", color: "white" },
+              backgroundColor: "var(--A800)",
+              ":hover": { backgroundColor: "var(--Alert)", color: "var(--Blanco)" },
             }}
           >
             <PowerSettingsNew sx={{ margin: "0 10px 0 0" }}></PowerSettingsNew>
@@ -193,19 +180,17 @@ export function Plantilla({ children }) {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader sx={{ bgcolor: "#003D75" }}>
+        <DrawerHeader sx={{ bgcolor: "var(--A800)" }}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
-              <MenuIcon sx={{ color: "#ffffff" }} />
+              <MenuIcon sx={{ color: "var(--Blanco)" }} />
             ) : (
-              <MenuIcon
-                sx={{ color: "#ffffff", ":hover": { color: "#95D3F6" } }}
-              />
+              <MenuIcon sx={{ color: "var(--Blanco)", ":hover": { color: "var(--A100)" } }} />
             )}
           </IconButton>
         </DrawerHeader>
-
-        <List sx={{ background: "#003D75", height: "100%" }}>
+        
+        <List sx={{ background: "var(--A800)", height: "100%" }}>
           {[
             { text: "Compras", icon: <ShoppingCartIcon /> },
             {
@@ -254,10 +239,10 @@ export function Plantilla({ children }) {
                   textAlign: "center",
                   px: 2.5,
                   border: "none",
-                  ":hover": { backgroundColor: "#95D3F6", color: "white" },
+                  ":hover": { backgroundColor: "var(--A100)", color: "var(--Blanco)" },
                   m: "10px",
                   borderRadius: "3px",
-                  backgroundColor: "#03A0F8",
+                  backgroundColor: "var(--A300)",
                 }}
               >
                 <ListItemIcon
@@ -265,7 +250,7 @@ export function Plantilla({ children }) {
                     minWidth: 0,
                     mr: open ? 1 : "auto",
                     justifyContent: "center",
-                    color: "white",
+                    color: "var(--Blanco)",
                   }}
                 >
                   {element.icon}
@@ -277,7 +262,7 @@ export function Plantilla({ children }) {
                     fontSize: "12px",
                     fontWeight: 600,
                   }}
-                  sx={{ opacity: open ? 1 : 0, color: "white" }}
+                  sx={{ opacity: open ? 1 : 0, color: "var(--Blanco)" }}
                 />
               </ListItemButton>
             </ListItem>
@@ -298,13 +283,13 @@ export function Plantilla({ children }) {
             bottom: 0,
             height: "40px",
             width: "100%vw",
-            backgroundColor: "#D9D9D9",
+            backgroundColor: "var(--G100)",
             alignItems: "center",
           }}
         >
           <Typography
             sx={{
-              color: "#003D75",
+              color: "var(--A800)",
               fontWeight: "700",
               mr: "4px",
             }}
@@ -313,7 +298,7 @@ export function Plantilla({ children }) {
           </Typography>
           <Typography
             sx={{
-              color: "#03A0F8",
+              color: "var(--A300)",
               fontWeight: "700",
             }}
           >
