@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Error404 } from "./pages/Error404";
 import { CrearFormulario } from "./pages/CrearFormulario";
 import { DiligenciarFormulario } from "./pages/DiligenciarFormulario";
+import { ForgotPassword } from "./pages/OlvidoPassword";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/crear-formulario" element={<CrearFormulario />} />
                 <Route path="/diligenciar-formulario" element={<DiligenciarFormulario />} />
                 <Route path="/editar-formulario" element={<CrearFormulario />} />
+                <Route path="/olvido-password" element={<ForgotPassword />} />
                 <Route path="*" element={<Error404 />} />
             </Routes>
         </BrowserRouter>
