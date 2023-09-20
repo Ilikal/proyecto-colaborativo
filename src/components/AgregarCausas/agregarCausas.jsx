@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, FormControl, Box, Typography, Divider, TextField, IconButton, Button, Modal } from "@mui/material";
+import { Container, FormControl, Box, Typography, Divider, TextField, IconButton } from "@mui/material";
 import { CancelPresentation } from "@mui/icons-material";
+import { Boton } from "../Boton";
 
 const AgregarCausas = (props) => {
 
@@ -32,8 +33,24 @@ const AgregarCausas = (props) => {
 
                 <Divider/>
 
-                <TextField id="outlined-basic" label="Indicador" variant="outlined" value="Indicador 1" fullWidth
-                            sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px"  }}/>
+                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem"}}>
+                    <TextField id="filled-basic" label="Área a la que perteneces" variant="filled" value="Gestión y Control de Calidad" fullWidth 
+                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} />
+                    <TextField id="filled-basic" label="Nombre del Proceso o Formulario" variant="filled" value="Verificación de Materia Prima que ingresa al almacén" multiline fullWidth 
+                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} /> 
+                </Box>
+                
+                <TextField id="filled-basic" label="Indicador" variant="filled" value="Indicador 1" fullWidth
+                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px"  }}/>
+
+                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem", }} >
+                    <TextField id="filled-basic" label="Agregue una causa de incumplimiento del indicador" variant="filled" defaultValue="" fullWidth
+                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px"  }}/>
+                    <Boton onClick={() => alert("Ha agregado una nueva CAUSA para el indicador")} tipo="sinRelleno" ancho="auto">
+                        Agregar Causa
+                    </Boton>
+                </Box>
+
 
             </FormControl>
         </Container>

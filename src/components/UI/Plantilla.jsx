@@ -151,11 +151,10 @@ export function Plantilla({ children }) {
                         <Boton onClick={handleOpenModal1} tipo="conRelleno--Blanco" ancho="auto"> 
                             <NoteAdd/> CREAR FORMULARIO {/*<-- Lo que se agregue dentro de Boton lo recibe el componente co<PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />mo children*/ }
                         </Boton>
-                        <Boton onClick={1} tipo="conRelleno--Blanco" ancho="auto">
+                        <Boton onClick={() => alert("Dirige al listado de formularios creados para el área")} tipo="conRelleno--Blanco" ancho="auto">
                             <NoteAlt />DILIGENCIAR FORMULARIO    
                         </Boton>
                     </Box>
-                    {/*<Button variant="contained" onClick={handleOpenModal1} sx={{color:"var(--A800)", ml: 2, backgroundColor:"white", ":hover":{backgroundColor:"var(--A100)", color:"white"}}} ><NoteAdd />CREAR FORMULARIO</Button>*/}
                     <PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />
 
                     <Typography sx={{marginLeft: "auto"}}>Hola USUARIO</Typography>              
