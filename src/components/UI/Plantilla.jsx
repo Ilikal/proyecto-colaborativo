@@ -154,14 +154,12 @@ export function Plantilla({ children }) {
               ancho="auto"
             >
               <NoteAdd /> CREAR FORMULARIO{" "}
-              {/*<-- Lo que se agregue dentro de Boton lo recibe el componente co<PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />mo children*/}
             </Boton>
             <Boton onClick={1} tipo="conRelleno--Blanco" ancho="auto">
               <NoteAlt />
               DILIGENCIAR FORMULARIO
             </Boton>
           </Box>
-          {/*<Button variant="contained" onClick={handleOpenModal1} sx={{color:"var(--A800)", ml: 2, backgroundColor:"var(--Blanco)", ":hover":{backgroundColor:"var(--A100)", color:"var(--Blanco)"}}} ><NoteAdd />CREAR FORMULARIO</Button>*/}
           <PopUpCrearFromulario open={openModal1} onClose={handleCloseModal1} />
 
           <Typography sx={{ marginLeft: "auto" }}>Hola USUARIO</Typography>

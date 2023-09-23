@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
-
+import { Button, IconButton } from "@mui/material";
+import { CancelPresentation, RemoveCircle } from "@mui/icons-material";
 
 export function Boton(props) {
 
@@ -46,7 +46,6 @@ export function Boton(props) {
                 }} > {children} </Button>
             );
 
-
         case "conRelleno--A300--small":
             return (
 
@@ -59,7 +58,6 @@ export function Boton(props) {
                     }}
                 > {children} </Button>
             );
-
 
         case "conRelleno--A800":
             return (
@@ -85,6 +83,20 @@ export function Boton(props) {
                         ":active": { backgroundColor: "var(--Blanco)", color: "var(--A300)" }
                     }}
                 > {children} </Button>
+            );
+
+        case "close":
+            return (
+                <IconButton sx={{color:"var(--A300)", ":hover":{color:"var(--Alert)"}}} size="large" onClick={onClick}> 
+                    <CancelPresentation variant="rounded" fontSize="large" />
+                </IconButton>
+            );
+
+        case "delete":
+            return (
+                <IconButton sx={{color:"var(--Alert)", ":hover":{color:"var(--Alert_Soft)"} , position:"absolute", right:"20px"}} size="large" onClick={onClick}> 
+                    <RemoveCircle variant="rounded" fontSize="large" />
+                </IconButton>
             );
     };
 

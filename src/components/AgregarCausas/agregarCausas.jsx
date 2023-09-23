@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, FormControl, Box, Typography, Divider, TextField, IconButton } from "@mui/material";
-import { CancelPresentation } from "@mui/icons-material";
+import { CancelPresentation, RemoveCircle } from "@mui/icons-material";
+
 import { Boton } from "../Boton";
+import InputMod from "../Input/input.jsx";
+
 
 const AgregarCausas = (props) => {
 
@@ -26,31 +29,47 @@ const AgregarCausas = (props) => {
                         > 
                         AGREGAR CAUSAS
                     </Typography>
-                    <IconButton aria-label="Cerrar Formulario"sx={{color:"var(--A300)"}} size="large" onClick={props.onClose}> 
-                        <CancelPresentation variant="rounded" fontSize="large" />
-                    </IconButton>
+                    <Boton tipo="close" onClick={props.onClose} />
                 </Box>
 
                 <Divider/>
 
                 <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem"}}>
-                    <TextField id="filled-basic" label="Área a la que perteneces" variant="filled" value="Gestión y Control de Calidad" fullWidth 
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} />
-                    <TextField id="filled-basic" label="Nombre del Proceso o Formulario" variant="filled" value="Verificación de Materia Prima que ingresa al almacén" multiline fullWidth 
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} /> 
+                    <InputMod label="Área a la que perteneces" valor="Gestión y Control de Calidad" alto="50px" />
+                    <InputMod label="Nombre del Proceso o Formulario" valor="Verificación de Materia Prima que ingresa al almacén" alto="50px" />
                 </Box>
                 
-                <TextField id="filled-basic" label="Indicador" variant="filled" value="Indicador 1" fullWidth
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px"  }}/>
+                <Box sx={{border: "1px solid var(--A300)", borderRadius:"20px", p:"1rem", display:"flex", flexDirection:"column", gap:"1rem"}}>
+                    <InputMod label="Indicador" valor="Indicador 1" alto="60px" />
 
-                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem", }} >
-                    <TextField id="filled-basic" label="Agregue una causa de incumplimiento del indicador" variant="filled" defaultValue="" fullWidth
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px"  }}/>
-                    <Boton onClick={() => alert("Ha agregado una nueva CAUSA para el indicador")} tipo="sinRelleno" ancho="auto">
-                        Agregar Causa
-                    </Boton>
+                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "3rem", }} >
+                        <InputMod label="Agregue una causa de incumplimiento del indicador" defaultValue="" alto="45px" />
+                        <Boton onClick={() => alert("Ha agregado una nueva CAUSA para el indicador")} tipo="conRelleno--A800" ancho="auto">
+                            Agregar Causa
+                        </Boton>
+                    </Box>
+
+                    <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "1rem", }}>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Causa 1" alto="45px"/>
+                            <Boton tipo="delete" onClick={() => alert("Eliminó la CAUSA")} />
+                        </Box>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Causa 2" alto="45px" />
+                            <Boton tipo="delete" onClick={() => alert("Eliminó la CAUSA")} />
+                        </Box>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Causa 3" alto="45px" />
+                            <Boton tipo="delete" onClick={() => alert("Eliminó la CAUSA")} />
+                        </Box>
+                    </Box>
                 </Box>
 
+                <Container sx={{display: "flex", flexDirection:"row", justifyContent:"center", alignItems: "stretch", gap: "2rem", height:"70px"}}>
+                    <Boton onClick={() => alert("Ha guardado una NUEVO causa")} tipo="conRelleno--A300" ancho="auto" >
+                        Guardar Causas
+                    </Boton>
+                </Container>
 
             </FormControl>
         </Container>
