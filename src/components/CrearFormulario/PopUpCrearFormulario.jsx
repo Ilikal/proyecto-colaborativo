@@ -2,7 +2,7 @@
 import { Modal, Box } from "@mui/material";
 import React from "react";
 
-import CrearFormulario from "../CrearFormulario/crearFormulario";
+import CrearFormulario from "./crearFormulario";
 
 
 const PopUpCrearFromulario = (props) => {
@@ -17,7 +17,6 @@ const PopUpCrearFromulario = (props) => {
         position: 'absolute',
         top: '8%',
         left: '7%',
-        /*transform: 'translate(-50%, -50%)',*/
         width: '100%',
         maxWidth: '86%',
         bgcolor: 'var(--G100)',
@@ -25,6 +24,7 @@ const PopUpCrearFromulario = (props) => {
         borderRadius: '20px',
         boxShadow: 24,
         p: 4,
+        minHeight:"800px",
       };
 
     
