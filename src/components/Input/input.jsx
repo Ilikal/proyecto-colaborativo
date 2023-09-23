@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, TextField, Input, FormHelperText } from "@mui/material";
+import { FormControl, InputLabel, Input, FormHelperText } from "@mui/material";
 
 const InputMod = (props) => {
 
@@ -6,12 +6,21 @@ const InputMod = (props) => {
 
     return (
         <FormControl variant="standard" 
-                     sx={{flexGrow:"1", display: "flex", justifyContent: "center" , background:"var(--Blanco)", color:"var(--A100)", height:`${alto}` , borderRadius:"10px", boxShadow:"0px 4px 4px #00000030", px:"10px" }} 
+                     sx={{height:`${alto}` , 
+                          flexGrow:"1", 
+                          display: "flex", 
+                          justifyContent: "center" , 
+                          background:"var(--Blanco)", 
+                          color:"var(--A100)", 
+                          borderRadius:"10px", 
+                          boxShadow:"0px 4px 4px #00000030", 
+                          px:"10px" }} 
         >
             {/*<InputLabel>{label}</InputLabel>*/}
             <Input value={valor} defaultValue={defaultValue} fullWidth
-                    sx={{color: "var(--A100)", fontWeight:"bold", fontSize:"25px", px:"25px", height:"4rem",
-                         borderBottom:"none", "::before":{borderBottom:"none"}, "::after":{borderBottom:"none"} }}
+                    sx={{color: "var(--A100)", fontWeight:"bold", fontSize:"25px", px:"25px", height:"4rem", borderBottom:"none", 
+                         "::before":{borderBottom:"none"}, 
+                         "::after":{borderBottom:"none"}, }}
             />
             <FormHelperText></FormHelperText>
         </FormControl>

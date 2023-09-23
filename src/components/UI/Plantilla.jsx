@@ -27,7 +27,8 @@ import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import PeopleIcon from "@mui/icons-material/People";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
-import PopUpCrearFromulario from "../PopUpCrearFormulario/PopUpCrearFormulario.jsx";
+import PopUpCrearFromulario from "../CrearFormulario/PopUpCrearFormulario.jsx";
+import SalirPopUp from "../PopUpSalir/popUpSalir.jsx";
 
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -35,6 +36,7 @@ import { Home, NoteAdd, NoteAlt, PowerSettingsNew } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { Boton } from "../Boton/index.jsx";
 import "./estilos.css";
+
 
 const drawerWidth = 180;
 
@@ -119,11 +121,15 @@ export function Plantilla({ children }) {
     setOpen(false);
   };
 
-  // -------- VARIABLES para crear MODAL/POPUP -------
+  // ---- Variables para modal/popUp botón CREAR FORMULARIO ---
   const [openModal1, setOpenModal1] = useState(false);
   const handleOpenModal1 = () => setOpenModal1(true);
   const handleCloseModal1 = () => setOpenModal1(false);
-  // -------------------------------------------------
+    // -------- Variables para modal/popUp botón SALIR ----------
+  const [openModal2, setOpenModal2] = useState(false);
+  const handleOpenModal2 = () => setOpenModal2(true);
+  const handleCloseModal2 = () => setOpenModal2(false);
+  // ----------------------------------------------------------
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -164,6 +170,7 @@ export function Plantilla({ children }) {
 
           <Typography sx={{ marginLeft: "auto" }}>Hola USUARIO</Typography>
           <Button
+            onClick={handleOpenModal2}
             variant="contained"
             sx={{
               marginLeft: "auto",
@@ -175,6 +182,8 @@ export function Plantilla({ children }) {
             <PowerSettingsNew sx={{ margin: "0 10px 0 0" }}></PowerSettingsNew>
             Salir
           </Button>
+          <SalirPopUp open={openModal2} onClose={handleCloseModal2} />
+
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

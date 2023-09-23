@@ -1,10 +1,8 @@
 import React from "react";
-import { Container, FormControl, Box, Typography, Divider, TextField, IconButton } from "@mui/material";
-import { CancelPresentation, RemoveCircle } from "@mui/icons-material";
+import { Container, FormControl, Box, Typography, Divider } from "@mui/material";
 
 import { Boton } from "../Boton";
 import InputMod from "../Input/input.jsx";
-
 
 const AgregarCausas = (props) => {
 
@@ -16,7 +14,6 @@ const AgregarCausas = (props) => {
     };
 
     return (
-
         <Container>
             <FormControl style={styleFormulario}>
                 <Box sx={{  display: "flex",
@@ -73,7 +70,6 @@ const AgregarCausas = (props) => {
 
             </FormControl>
         </Container>
-
     );
 };
 

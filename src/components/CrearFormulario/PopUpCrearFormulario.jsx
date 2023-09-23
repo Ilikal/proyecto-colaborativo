@@ -2,7 +2,7 @@
 import { Modal, Box } from "@mui/material";
 import React from "react";
 
-import CrearFormulario from "../CrearFormulario/crearFormulario";
+import CrearFormulario from "./crearFormulario";
 
 
 const PopUpCrearFromulario = (props) => {

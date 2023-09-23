@@ -1,9 +1,8 @@
-import { CancelPresentation, RemoveCircle } from "@mui/icons-material";
-import { Container, FormControl, Box, Typography, Divider, TextField, IconButton, Button, Modal } from "@mui/material";
+import { Container, FormControl, Box, Typography, Divider, Modal } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 
-import AgregarCausas from "../AgregarCausas/agregarCausas.jsx";
+import AgregarCausas from "./agregarCausas.jsx";
 import { Boton } from "../Boton/index.jsx";
 import InputMod from "../Input/input.jsx";
 
