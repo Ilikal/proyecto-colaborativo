@@ -1,22 +1,23 @@
-import { CancelPresentation } from "@mui/icons-material";
-import { Container, FormControl, Box, Typography, Divider, TextField, IconButton, Button, Modal } from "@mui/material";
+import { Container, FormControl, Box, Typography, Divider, Modal } from "@mui/material";
 import React from "react";
 import { useState } from "react";
-import AgregarCausas from "../AgregarCausas/agregarCausas.jsx";
+
+import AgregarCausas from "./agregarCausas.jsx";
+import { Boton } from "../Boton/index.jsx";
+import InputMod from "../Input/input.jsx";
 
 const CrearFormulario = (props) => {
 
-    /* ESTILO DEL MODAL */
+    /* ESTILO DEL MODAL_causas */
     const styleModal = {
         background: "var(--G500)"
     };
 
-    /* ESTILO DEL POPUP */
+    /* ESTILO DEL POPUP_causas */
     const stylePopUp = {
         position: 'absolute',
         top: '16%',
         left: '7%',
-        /*transform: 'translate(-50%, -50%)',*/
         width: '100%',
         maxWidth: '86%',
         bgcolor: 'var(--G100)',
@@ -24,9 +25,10 @@ const CrearFormulario = (props) => {
         borderRadius: '20px',
         boxShadow: 24,
         p: 4,
+        minHeight:"700px",
         };
           
-    /* ESTILO DE CREAR FORMULARIO */
+    /* ESTILO DE FORMULARIO de causas */
     const styleFormulario = {
         display: 'flex',
         flexDirection: 'column',
@@ -52,50 +54,58 @@ const CrearFormulario = (props) => {
                         > 
                         CREAR FORMULARIO 
                     </Typography>
-                    <IconButton aria-label="Cerrar Formulario"sx={{color:"var(--A300)"}} size="large" onClick={props.onClose}> 
-                        <CancelPresentation variant="rounded" fontSize="large" />
-                    </IconButton>
+                    <Boton tipo="close" onClick={props.onClose} />
                 </Box>
 
                 <Divider/>
 
-                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem"}}>
-                    <TextField id="standard-basic" label="Área a la que perteneces" variant="outlined" value="Gestión y Control de Calidad" fullWidth 
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} />
-                    <TextField id="standard-basic" label="Agrega el nombre del Proceso o Formulario" variant="filled" defaultValue="" multiline fullWidth 
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }} /> 
+                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem", mb:"1rem"}}>
+                    <InputMod label="Área a la que perteneces" valor="Gestión y Control de Calidad" alto="80px" />
+                    <InputMod label="Agrega el nombre del Proceso o Formulario" defaultValue="" alto="80px" />
                 </Box>
 
-                <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "stretch", gap: "3rem", }}>
-                    <TextField id="standard-basic" label="Indicador" variant="standard" defaultValue="" fullWidth
-                                sx={{flexGrow:"1", background:"var(--Blanco)", color:"var(--A100)", border:"1px solid var(--Blanco)", borderRadius:"10px", /*boxShadow:"-2px 2px var(--G300)"*/  }}/>
-                    <Button variant="outlined" 
-                            onClick={handleOpenModal} 
-                            sx={{border:"3px solid var(--A300)", color:"var(--A300)", backgroundColor:"var(--G100)", 
-                                ":hover":{border:"3px solid var(--A300)", backgroundColor:"var(--A100)", color:"var(--A300)"}, 
-                                ":active":{border:"3px solid var(--A300)", backgroundColor:"var(--Blanco)", color:"var(--A300)"}}} 
-                    > Agregar </Button>
+                <Box sx={{border: "1px solid var(--A300)", borderRadius:"20px", p:"1rem", display:"flex", flexDirection:"column", gap:"3rem"}}>
+                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "3rem", }}>
+                        <InputMod label="Agregue un indicador para evaluar el proceso" defaultValue="" alto="70px" />
                     
-                    <React.Fragment>
-                    <Modal open={openModal} style={styleModal}>
-                        <Box sx={stylePopUp} >
-                            <AgregarCausas onClose={handleCloseModal} />
+                        <Boton onClick={handleOpenModal} tipo="sinRelleno" ancho="auto">
+                            Agregar
+                        </Boton>
+                        <React.Fragment>
+                        <Modal open={openModal} style={styleModal}>
+                            <Box sx={stylePopUp} >
+                                <AgregarCausas onClose={handleCloseModal} />
+                            </Box>
+                        </Modal>
+                        </React.Fragment>
+                        
+                    </Box>
+
+                    <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "0.5rem", }}>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Indicador 1" alto="78px"/>
+                            <Boton tipo="delete" onClick={() => alert("Eliminó el Indicador")} />
                         </Box>
-                    </Modal>
-                    </React.Fragment>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Indicador 2" alto="78px" />
+                            <Boton tipo="delete" onClick={() => alert("Eliminó el Indicador")} />
+                        </Box>
+                        <Box sx={{display: "flex", alignItems: "center"}}>
+                            <InputMod label="Agregue un indicador para evaluar el proceso" valor="Indicador 3" alto="78px" />
+                            <Boton tipo="delete" onClick={() => alert("Eliminó el Indicador")} />
+                        </Box>
+
+                    </Box>
                 </Box>
 
                 <Container sx={{display: "flex", flexDirection:"row", justifyContent:"center", alignItems: "stretch", gap: "2rem", height:"70px"}}>
-                    <Button variant="contained" onClick={1} 
-                            sx={{color:"var(--Blanco)", backgroundColor:"var(--A300)", 
-                                ":hover":{backgroundColor:"var(--A100)", color:"var(--Blanco)"}, 
-                                ":active":{backgroundColor:"var(--Blanco)", color:"var(--A300)"}}} 
-                    > Generar Formulario </Button>
-                    <Button variant="contained" onClick={2} 
-                            sx={{color:"var(--Blanco)", backgroundColor:"var(--A300)", 
-                                ":hover":{backgroundColor:"var(--A100)", color:"var(--Blanco)"}, 
-                                ":active":{backgroundColor:"var(--Blanco)", color:"var(--A300)"}}} 
-                    > Generar Formulario y agregar al STATUS PANEL </Button>
+                    <Boton onClick={() => alert("Ha guardado un NUEVO formulario")} tipo="conRelleno--A300" ancho="auto" >
+                        Generar Formulario
+                    </Boton>
+
+                    <Boton onClick={() => alert("Ha guardado un NUEVO formulario y será redirigido al STATUS PANEL")} tipo="conRelleno--A300" ancho="auto" >
+                        Generar Formulario y agregar al STATUS PANEL
+                    </Boton>
                 </Container>
 
             </FormControl>
